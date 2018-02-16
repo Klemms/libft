@@ -6,7 +6,7 @@
 #    By: cababou <cababou@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/02 18:27:43 by cababou           #+#    #+#              #
-#    Updated: 2018/02/16 04:36:19 by cababou          ###   ########.fr        #
+#    Updated: 2018/02/16 07:31:40 by cababou          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,7 +73,8 @@ SRC =		ft_atoi.c \
 	ft_lstgetfirst.c \
 	ft_lstgetlast.c \
 	ft_lstdel.c \
-	ft_lstget.c
+	ft_lstget.c \
+	ft_strsubuntilchar.c
 
 OBJ = $(SRC:.c=.o)
 
