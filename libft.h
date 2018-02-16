@@ -6,7 +6,7 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/26 17:21:05 by cababou           #+#    #+#             */
-/*   Updated: 2018/02/16 04:37:38 by cababou          ###   ########.fr       */
+/*   Updated: 2018/02/16 07:26:58 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,9 @@ int					ft_strequ(char const *s1, char const *s2);
 
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 
-char				*ft_strsub(char const *s, unsigned int start, size_t len);
+char				*ft_strsub(char const *s, size_t t, size_t l, size_t f);
 
-char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strjoin(char const *s1, char const *s2, size_t freelv);
 
 char				*ft_strrev(char const *s1);
 
