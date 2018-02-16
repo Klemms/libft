@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cababou <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/09 17:58:14 by cababou           #+#    #+#             */
-/*   Updated: 2017/12/17 22:09:48 by cababou          ###   ########.fr       */
+/*   Updated: 2018/02/16 07:34:25 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char			**ft_strsplit(char const *s, char c)
 	{
 		while (s[y] == c)
 			y++;
-		table[i] = ft_strsub(s, y, spstrlen(s, y, c));
+		table[i] = ft_strsub(s, y, spstrlen(s, y, c), 0);
 		y += spstrlen(s, y, c);
 		i++;
 	}
