@@ -3,16 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cababou <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 19:13:16 by cababou           #+#    #+#             */
-/*   Updated: 2017/12/13 18:36:24 by cababou          ###   ########.fr       */
+/*   Updated: 2018/02/16 07:19:56 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	free_it(char const **s1, char const **s2, size_t free_level)
+{
+	if (free_level == 1)
+		free(*s1);
+	if (free_level == 2)
+		free(*s2);
+	if (free_level == 3)
+	{
+		free(*s1);
+		free(*s2);
+	}
+}
+
+char	*ft_strjoin(char const *s1, char const *s2, size_t free_level)
 {
 	size_t	i;
 	char	*nstring;
@@ -34,5 +47,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		i++;
 	}
 	nstring[i] = '\0';
+	free_it(&s1, &s2, free_level);
 	return (nstring);
 }
