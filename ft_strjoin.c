@@ -6,7 +6,7 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 19:13:16 by cababou           #+#    #+#             */
-/*   Updated: 2018/02/16 07:19:56 by cababou          ###   ########.fr       */
+/*   Updated: 2018/02/16 07:36:11 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	free_it(char const **s1, char const **s2, size_t free_level)
 	if (free_level == 1)
 		free(*s1);
 	if (free_level == 2)
-		free(*s2);
+		free((char *)(*s2));
 	if (free_level == 3)
 	{
 		free(*s1);
-		free(*s2);
+		free((char *)(*s2));
 	}
 }
 

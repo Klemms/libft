@@ -6,7 +6,7 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 19:01:36 by cababou           #+#    #+#             */
-/*   Updated: 2018/02/16 07:26:10 by cababou          ###   ########.fr       */
+/*   Updated: 2018/02/16 07:35:44 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ char	*ft_strsub(char const *s, size_t start, size_t len, size_t freeit)
 	}
 	nstring[i] = '\0';
 	if (freeit == 1)
-		free(s);
+		free((char *)s);
 	return (nstring);
 }
