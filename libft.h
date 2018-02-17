@@ -6,7 +6,7 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/26 17:21:05 by cababou           #+#    #+#             */
-/*   Updated: 2018/02/16 07:31:22 by cababou          ###   ########.fr       */
+/*   Updated: 2018/02/17 03:09:06 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,5 +151,7 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void				*ft_lstget(size_t index, t_list *anyelement);
 
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+void				ft_lstswap(t_list *anyelement, int index1, int index2);
 
 #endif
