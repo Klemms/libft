@@ -6,15 +6,15 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 16:36:38 by cababou           #+#    #+#             */
-/*   Updated: 2018/02/16 03:46:30 by cababou          ###   ########.fr       */
+/*   Updated: 2018/02/17 03:34:50 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	**ft_lstgetlast(t_list **lst)
+t_list	*ft_lstgetlast(t_list *lst)
 {
-	while ((*lst)->next != NULL)
-		*lst = (*lst)->next;
-	return (&(*lst));
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

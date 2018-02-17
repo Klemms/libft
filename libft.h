@@ -6,7 +6,7 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/26 17:21:05 by cababou           #+#    #+#             */
-/*   Updated: 2018/02/17 03:09:06 by cababou          ###   ########.fr       */
+/*   Updated: 2018/02/17 03:38:13 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,15 +136,15 @@ typedef struct		s_list
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 
-t_list				**ft_lstgetfirst(t_list **lst);
+t_list				*ft_lstgetfirst(t_list *lst);
 
-t_list				**ft_lstgetlast(t_list **lst);
+t_list				*ft_lstgetlast(t_list *lst);
 
-void				ft_lstadd(t_list **listelement, t_list *newelement);
+void				ft_lstadd(t_list *listelement, t_list *newelement);
 
 void				ft_lstdelone(t_list *elementlist);
 
-void				ft_lstdel(t_list **lst);
+void				ft_lstdel(t_list *lst);
 
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 
