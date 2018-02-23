@@ -6,7 +6,7 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/26 17:21:05 by cababou           #+#    #+#             */
-/*   Updated: 2018/02/17 03:38:13 by cababou          ###   ########.fr       */
+/*   Updated: 2018/02/17 05:53:46 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,5 +153,21 @@ void				*ft_lstget(size_t index, t_list *anyelement);
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 void				ft_lstswap(t_list *anyelement, int index1, int index2);
+
+typedef struct		s_lstcontainer
+{
+	t_list			*(*add)(struct s_lstcontainer *lstc, void *cont, size_t s);
+	void			(*remove)(t_list *element);
+	int				(*size)(struct s_lstcontainer *list_container);
+	t_list			*firstelement;
+}					t_lstcontainer;
+
+t_list				*lstcontainer_add(t_lstcontainer *cont, void *c, size_t s);
+
+void				lstcontainer_remove(t_list *element);
+
+int					lstcontainer_size(t_lstcontainer *list_container);
+
+t_lstcontainer		*lstcontainer_new(void);
 
 #endif

@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstget.c                                        :+:      :+:    :+:   */
+/*   listcontainer_size.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/16 04:29:03 by cababou           #+#    #+#             */
-/*   Updated: 2018/02/17 05:37:18 by cababou          ###   ########.fr       */
+/*   Created: 2018/02/17 05:29:49 by cababou           #+#    #+#             */
+/*   Updated: 2018/02/17 05:36:54 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_lstget(size_t index, t_list *anyelement)
+int		lstcontainer_size(t_lstcontainer *list_container)
 {
-	t_list	*el;
+	t_list	*lst;
+	int		size;
 
-	el = ft_lstgetfirst(anyelement);
-	while (el != NULL)
+	size = 0;
+	lst = list_container->firstelement;
+	while (lst)
 	{
-		if (el->index == index)
-			return (el);
-		el = el->next;
+		lst = lst->next;
+		size++;
 	}
-	return (NULL);
+	return (size);
 }

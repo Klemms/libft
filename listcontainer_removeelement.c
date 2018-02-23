@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstget.c                                        :+:      :+:    :+:   */
+/*   listcontainer_removeelement.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/16 04:29:03 by cababou           #+#    #+#             */
-/*   Updated: 2018/02/17 05:37:18 by cababou          ###   ########.fr       */
+/*   Created: 2018/02/17 05:26:45 by cababou           #+#    #+#             */
+/*   Updated: 2018/02/17 05:53:37 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_lstget(size_t index, t_list *anyelement)
+void	lstcontainer_remove(t_list *element)
 {
-	t_list	*el;
-
-	el = ft_lstgetfirst(anyelement);
-	while (el != NULL)
-	{
-		if (el->index == index)
-			return (el);
-		el = el->next;
-	}
-	return (NULL);
+	ft_lstdel(element);
 }

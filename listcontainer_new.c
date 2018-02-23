@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstget.c                                        :+:      :+:    :+:   */
+/*   listcontainer_new.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/16 04:29:03 by cababou           #+#    #+#             */
-/*   Updated: 2018/02/17 05:37:18 by cababou          ###   ########.fr       */
+/*   Created: 2018/02/17 05:32:52 by cababou           #+#    #+#             */
+/*   Updated: 2018/02/17 05:48:31 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_lstget(size_t index, t_list *anyelement)
+t_lstcontainer	*lstcontainer_new(void)
 {
-	t_list	*el;
+	t_lstcontainer	*newcontainer;
 
-	el = ft_lstgetfirst(anyelement);
-	while (el != NULL)
-	{
-		if (el->index == index)
-			return (el);
-		el = el->next;
-	}
-	return (NULL);
+	newcontainer = malloc(sizeof(t_lstcontainer));
+	newcontainer->add = lstcontainer_add;
+	newcontainer->remove = lstcontainer_remove;
+	newcontainer->size = lstcontainer_size;
+	return (newcontainer);
 }

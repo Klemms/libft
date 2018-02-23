@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstget.c                                        :+:      :+:    :+:   */
+/*   listcontainer_addelement.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/16 04:29:03 by cababou           #+#    #+#             */
-/*   Updated: 2018/02/17 05:37:18 by cababou          ###   ########.fr       */
+/*   Created: 2018/02/17 05:13:38 by cababou           #+#    #+#             */
+/*   Updated: 2018/02/17 05:53:25 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_lstget(size_t index, t_list *anyelement)
+t_list	*lstcontainer_add(t_lstcontainer *container, void *content, size_t size)
 {
-	t_list	*el;
-
-	el = ft_lstgetfirst(anyelement);
-	while (el != NULL)
-	{
-		if (el->index == index)
-			return (el);
-		el = el->next;
-	}
-	return (NULL);
+	if (container->firstelement == NULL)
+		container->firstelement = ft_lstnew(content, size);
+	else
+		ft_lstadd(container->firstelement, ft_lstnew(content, size));
+	return (ft_lstgetlast(container->firstelement));
 }
