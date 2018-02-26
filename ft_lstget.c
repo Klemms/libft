@@ -6,13 +6,13 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 04:29:03 by cababou           #+#    #+#             */
-/*   Updated: 2018/02/17 05:37:18 by cababou          ###   ########.fr       */
+/*   Updated: 2018/02/26 03:50:51 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_lstget(size_t index, t_list *anyelement)
+t_list	*ft_lstget(size_t index, t_list *anyelement)
 {
 	t_list	*el;
 
