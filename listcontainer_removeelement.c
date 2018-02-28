@@ -6,7 +6,7 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/17 05:26:45 by cababou           #+#    #+#             */
-/*   Updated: 2018/02/17 05:53:37 by cababou          ###   ########.fr       */
+/*   Updated: 2018/02/28 19:16:27 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	lstcontainer_remove(t_list *element)
 {
-	ft_lstdel(element);
+	ft_lstdelone(element);
 }
