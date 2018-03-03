@@ -6,7 +6,7 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 20:09:47 by cababou           #+#    #+#             */
-/*   Updated: 2018/02/16 04:14:50 by cababou          ###   ########.fr       */
+/*   Updated: 2018/03/03 01:31:57 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@ void	ft_lstdelone(t_list *elementlist)
 {
 	t_list	*tmpelement;
 
-	elementlist->prev->next = NULL;
-	if (elementlist->next != NULL)
+	if (elementlist->prev)
+		elementlist->prev->next = NULL;
+	if (elementlist->next)
 	{
 		elementlist->prev->next = elementlist->next;
 		elementlist->next->prev = elementlist->prev;
 		tmpelement = elementlist->next;
-		while (tmpelement != NULL)
+		while (tmpelement)
 		{
 			tmpelement->index--;
 			tmpelement = tmpelement->next;
