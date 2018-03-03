@@ -6,7 +6,7 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 17:10:41 by cababou           #+#    #+#             */
-/*   Updated: 2018/03/03 05:12:19 by cababou          ###   ########.fr       */
+/*   Updated: 2018/03/03 05:27:31 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_lstdel(t_list *lst)
 		{
 			if (element->content)
 				free(element->content);
-			element = element->next;
+			element = element->next ? element->next : NULL;
 			free(element);
 		}
 	}
