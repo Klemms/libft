@@ -6,33 +6,34 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 20:09:47 by cababou           #+#    #+#             */
-/*   Updated: 2018/03/03 01:33:15 by cababou          ###   ########.fr       */
+/*   Updated: 2018/03/03 01:35:10 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *elementlist)
+void	ft_lstdelone(t_list *el)
 {
 	t_list	*tmpelement;
 
-	if (elementlist)
+	if (el)
 	{
-		if (elementlist->prev)
-			elementlist->prev->next = NULL;
-		if (elementlist->next)
+		if (el->prev)
+			el->prev->next = NULL;
+		if (el->next)
 		{
-			elementlist->prev->next = elementlist->next;
-			elementlist->next->prev = elementlist->prev;
-			tmpelement = elementlist->next;
+			if (el->prev)
+				el->prev->next = el->next;
+			el->next->prev = el->prev ? el->prev : NULL;
+			tmpelement = el->next;
 			while (tmpelement)
 			{
 				tmpelement->index--;
 				tmpelement = tmpelement->next;
 			}
 		}
-		if (elementlist->content)
-			free(elementlist->content);
-		free(elementlist);
+		if (el->content)
+			free(el->content);
+		free(el);
 	}
 }
