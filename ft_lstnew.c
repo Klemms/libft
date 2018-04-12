@@ -6,7 +6,7 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 20:10:57 by cababou           #+#    #+#             */
-/*   Updated: 2018/04/07 00:56:13 by cababou          ###   ########.fr       */
+/*   Updated: 2018/04/13 01:50:12 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 		liste->content_size = 0;
 		return (liste);
 	}
-	liste->content = content;
+	liste->content = (void *)content;
 	liste->content_size = content_size;
 	return (liste);
 }
