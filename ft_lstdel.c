@@ -6,28 +6,26 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 17:10:41 by cababou           #+#    #+#             */
-/*   Updated: 2018/03/03 05:36:15 by cababou          ###   ########.fr       */
+/*   Updated: 2018/06/03 11:53:01 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel(t_list *lst)
+void	ft_lstdel(t_list *lst, int free_content)
 {
 	t_list	*element;
-	t_list	*tmp;
+	t_list	*next;
 
-	if (lst)
+	if (lst == NULL)
+		return ;
+	element = ft_lstgetfirst(lst);
+	while (element)
 	{
-		tmp = ft_lstgetfirst(lst);
-		element = tmp;
-		while (element)
-		{
-			if (element->content)
-				free(element->content);
-			tmp = element->next ? element->next : NULL;
-			free(element);
-			element = tmp;
-		}
+		if (element->content && free_content)
+			free(element->content);
+		next = element->next;
+		free(element);
+		element = next;
 	}
 }

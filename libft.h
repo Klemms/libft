@@ -6,7 +6,7 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/26 17:21:05 by cababou           #+#    #+#             */
-/*   Updated: 2018/02/26 03:51:08 by cababou          ###   ########.fr       */
+/*   Updated: 2018/06/03 11:53:27 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,7 @@ void				ft_lstadd(t_list *listelement, t_list *newelement);
 
 void				ft_lstdelone(t_list *elementlist);
 
-void				ft_lstdel(t_list *lst);
+void				ft_lstdel(t_list *lst, int free_content);
 
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 
