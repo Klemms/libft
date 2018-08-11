@@ -6,7 +6,7 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/26 17:21:05 by cababou           #+#    #+#             */
-/*   Updated: 2018/07/09 03:10:18 by cababou          ###   ########.fr       */
+/*   Updated: 2018/08/11 04:47:33 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,13 +128,12 @@ char				*ft_strsubuntilchar(char const *s, size_t start, char end);
 typedef struct		s_list
 {
 	void			*content;
-	size_t			content_size;
 	size_t			index;
 	struct s_list	*prev;
 	struct s_list	*next;
 }					t_list;
 
-t_list				*ft_lstnew(void const *content, size_t content_size);
+t_list				*ft_lstnew(void const *content);
 
 t_list				*ft_lstgetfirst(t_list *lst);
 
@@ -156,13 +155,13 @@ void				ft_lstswap(t_list *anyelement, int index1, int index2);
 
 typedef struct		s_lstcontainer
 {
-	t_list			*(*add)(struct s_lstcontainer *lstc, void *cont, size_t s);
+	t_list			*(*add)(struct s_lstcontainer *lstc, void *cont);
 	void			(*remove)(struct s_lstcontainer *lstc, t_list *element);
 	int				(*size)(struct s_lstcontainer *list_container);
 	t_list			*firstelement;
 }					t_lstcontainer;
 
-t_list				*lstcontainer_add(t_lstcontainer *cont, void *c, size_t s);
+t_list				*lstcontainer_add(t_lstcontainer *cont, void *c);
 
 void				lstcontainer_remove(t_lstcontainer *liste, t_list *element);
 

@@ -6,14 +6,14 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 20:10:57 by cababou           #+#    #+#             */
-/*   Updated: 2018/04/13 01:50:12 by cababou          ###   ########.fr       */
+/*   Updated: 2018/08/11 04:47:35 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+t_list	*ft_lstnew(void const *content)
 {
 	t_list		*liste;
 
@@ -22,13 +22,11 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	liste->prev = NULL;
 	liste->next = NULL;
 	liste->index = 0;
-	if (content == NULL || content_size == 0)
+	if (content == NULL)
 	{
 		liste->content = NULL;
-		liste->content_size = 0;
 		return (liste);
 	}
 	liste->content = (void *)content;
-	liste->content_size = content_size;
 	return (liste);
 }
