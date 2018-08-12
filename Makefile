@@ -6,7 +6,7 @@
 #    By: cababou <cababou@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/02 18:27:43 by cababou           #+#    #+#              #
-#    Updated: 2018/02/17 05:39:31 by cababou          ###   ########.fr        #
+#    Updated: 2018/08/12 03:54:17 by cababou          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,8 +78,11 @@ SRC =		ft_atoi.c \
 	ft_lstswap.c \
 	listcontainer_new.c \
 	listcontainer_addelement.c \
+	listcontainer_addall.c \
 	listcontainer_removeelement.c \
-	listcontainer_size.c
+	listcontainer_reindex.c \
+	listcontainer_size.c \
+	listcontainer_fastsize.c
 
 OBJ = $(SRC:.c=.o)
 

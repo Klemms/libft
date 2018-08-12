@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   listcontainer_addelement.c                         :+:      :+:    :+:   */
+/*   listcontainer_addall.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/17 05:13:38 by cababou           #+#    #+#             */
-/*   Updated: 2018/08/12 03:37:36 by cababou          ###   ########.fr       */
+/*   Updated: 2018/08/12 03:40:21 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	lstcontainer_add(t_lstcontainer *container, void *content)
+void	lstcontainer_addall(t_lstcontainer *dest, t_lstcontainer *cnt)
 {
-	if (container == NULL)
-		container = lstcontainer_new();
-	if (container->firstelement == NULL)
+	t_list	*element;
+
+	if (dest == NULL)
+		dest = lstcontainer_new();
+	element = cnt->firstelement;
+	while (element)
 	{
-		container->firstelement = ft_lstnew(content);
-		container->lastelement = container->firstelement;
+		if (dest->firstelement == NULL)
+		{
+			dest->firstelement = ft_lstnew(element->content);
+			dest->lastelement = dest->firstelement;
+		}
+		else
+		{
+			dest->lastelement = ft_lstadd(dest->lastelement,
+				ft_lstnew(element->content));
+		}
+		element = element->next;
 	}
-	else
-		container->lastelement = ft_lstadd(container->lastelement,
-			ft_lstnew(content));
 }

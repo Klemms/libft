@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   listcontainer_reindex.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/13 19:55:14 by cababou           #+#    #+#             */
-/*   Updated: 2018/08/12 03:36:06 by cababou          ###   ########.fr       */
+/*   Created: 2018/02/17 05:29:49 by cababou           #+#    #+#             */
+/*   Updated: 2018/08/12 03:48:45 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstadd(t_list *listelement, t_list *newelement)
+void	lstcontainer_reindex(t_lstcontainer *container)
 {
-	newelement->index = (listelement->index + 1);
-	newelement->prev = listelement;
-	newelement->next = NULL;
-	listelement->next = newelement;
-	return (newelement);
+	t_list	*element;
+	int		i;
+
+	element = container->firstelement;
+	i = 0;
+	while (element)
+	{
+		element->index = i;
+		element = element->next;
+		i++;
+	}
 }
