@@ -6,7 +6,7 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/26 17:21:05 by cababou           #+#    #+#             */
-/*   Updated: 2018/08/12 03:53:02 by cababou          ###   ########.fr       */
+/*   Updated: 2018/08/13 02:24:03 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ t_list				*ft_lstgetlast(t_list *lst);
 
 t_list				*ft_lstadd(t_list *listelement, t_list *newelement);
 
-void				ft_lstdelone(t_list *elementlist);
+void				ft_lstdelone(t_list *elementlist, int free_content);
 
 void				ft_lstdel(t_list *lst, int free_content);
 
@@ -156,7 +156,7 @@ void				ft_lstswap(t_list *anyelement, int index1, int index2);
 typedef struct		s_lstcontainer
 {
 	void			(*add)(struct s_lstcontainer *lstc, void *cont);
-	void			(*remove)(struct s_lstcontainer *lstc, t_list *element);
+	void			(*remove)(struct s_lstcontainer *lstc, t_list *el, int f);
 	int				(*size)(struct s_lstcontainer *list_container);
 	int				(*fastsize)(struct s_lstcontainer *list_container);
 	void			(*reindex)(struct s_lstcontainer *list_container);
@@ -168,7 +168,7 @@ void				lstcontainer_add(t_lstcontainer *cont, void *c);
 
 void				lstcontainer_addall(t_lstcontainer *d, t_lstcontainer *c);
 
-void				lstcontainer_remove(t_lstcontainer *liste, t_list *element);
+void				lstcontainer_remove(t_lstcontainer *l, t_list *el, int f);
 
 int					lstcontainer_size(t_lstcontainer *list_container);
 
