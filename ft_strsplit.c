@@ -6,7 +6,7 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/09 17:58:14 by cababou           #+#    #+#             */
-/*   Updated: 2018/02/16 07:34:25 by cababou          ###   ########.fr       */
+/*   Updated: 2018/09/16 22:10:08 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,31 @@ static size_t	countwords(char const *s, char c)
 		i++;
 	}
 	return (count);
+}
+
+int				strsplit_size(char **array)
+{
+	size_t i;
+
+	i = 0;
+	while (array[i] != NULL)
+		i++;
+	return (i);
+}
+
+void			free_strsplit(char **array)
+{
+	size_t i;
+
+	if (array == NULL)
+		return ;
+	i = 0;
+	while (array[i] != NULL)
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
 }
 
 char			**ft_strsplit(char const *s, char c)

@@ -6,7 +6,7 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/26 17:21:05 by cababou           #+#    #+#             */
-/*   Updated: 2018/08/13 02:24:03 by cababou          ###   ########.fr       */
+/*   Updated: 2018/09/04 03:15:03 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,10 @@ void				ft_putstr(char const *s);
 
 char				**ft_strsplit(char const *s, char c);
 
+void				free_strsplit(char **array);
+
+int					strsplit_size(char **array);
+
 size_t				ft_countchars(char const *s, char c);
 
 char				*ft_itoa(int n);
@@ -141,13 +145,15 @@ t_list				*ft_lstgetlast(t_list *lst);
 
 t_list				*ft_lstadd(t_list *listelement, t_list *newelement);
 
-void				ft_lstdelone(t_list *elementlist, int free_content);
+void				ft_lstdelone(t_list *elementlist);
 
 void				ft_lstdel(t_list *lst, int free_content);
 
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 
 t_list				*ft_lstget(size_t index, t_list *anyelement);
+
+t_list				*ft_lstget_fromelement(size_t index, t_list *element);
 
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
@@ -156,7 +162,7 @@ void				ft_lstswap(t_list *anyelement, int index1, int index2);
 typedef struct		s_lstcontainer
 {
 	void			(*add)(struct s_lstcontainer *lstc, void *cont);
-	void			(*remove)(struct s_lstcontainer *lstc, t_list *el, int f);
+	void			(*remove)(struct s_lstcontainer *lstc, t_list *element);
 	int				(*size)(struct s_lstcontainer *list_container);
 	int				(*fastsize)(struct s_lstcontainer *list_container);
 	void			(*reindex)(struct s_lstcontainer *list_container);
@@ -168,7 +174,7 @@ void				lstcontainer_add(t_lstcontainer *cont, void *c);
 
 void				lstcontainer_addall(t_lstcontainer *d, t_lstcontainer *c);
 
-void				lstcontainer_remove(t_lstcontainer *l, t_list *el, int f);
+void				lstcontainer_remove(t_lstcontainer *liste, t_list *element);
 
 int					lstcontainer_size(t_lstcontainer *list_container);
 
@@ -177,5 +183,19 @@ int					lstcontainer_fastsize(t_lstcontainer *container);
 void				lstcontainer_reindex(t_lstcontainer *container);
 
 t_lstcontainer		*lstcontainer_new(void);
+
+t_lstcontainer		*ft_strsplit_lst(char *str, char c1, char c2, char c3);
+
+char				*ft_strsplitone(char *str, char c, int kp);
+
+int					letter_to_int(char c);
+
+int					ft_hex_to_color(char *hex, int free_it);
+
+int					ft_hex_to_int(char *hex, int free_it);
+
+int					ft_pow(int nb, int power);
+
+int					rgba_to_int(int r, int g, int b, int a);
 
 #endif

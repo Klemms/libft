@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   listcontainer_addelement.c                         :+:      :+:    :+:   */
+/*   ft_letter_to_int.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/17 05:13:38 by cababou           #+#    #+#             */
-/*   Updated: 2018/09/16 01:17:43 by cababou          ###   ########.fr       */
+/*   Created: 2018/09/04 02:58:45 by cababou           #+#    #+#             */
+/*   Updated: 2018/09/04 03:00:33 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	lstcontainer_add(t_lstcontainer *container, void *content)
+int		letter_to_int(char c)
 {
-	if (container == NULL)
-		container = lstcontainer_new();
-	if (container->firstelement == NULL)
-	{
-		container->firstelement = ft_lstnew(content);
-		container->lastelement = container->firstelement;
-	}
-	else
-		container->lastelement = ft_lstadd(container->lastelement,
-			ft_lstnew(content));
+	if (c >= '0' && c <= '9')
+		return (c - '0');
+	else if (c == 'A' || c == 'a')
+		return (10);
+	else if (c == 'B' || c == 'b')
+		return (11);
+	else if (c == 'C' || c == 'c')
+		return (12);
+	else if (c == 'D' || c == 'd')
+		return (13);
+	else if (c == 'E' || c == 'e')
+		return (14);
+	else if (c == 'F' || c == 'f')
+		return (15);
+	return (0);
 }

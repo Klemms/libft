@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   listcontainer_addelement.c                         :+:      :+:    :+:   */
+/*   ft_rgba_to_int.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/17 05:13:38 by cababou           #+#    #+#             */
-/*   Updated: 2018/09/16 01:17:43 by cababou          ###   ########.fr       */
+/*   Created: 2018/09/04 03:06:17 by cababou           #+#    #+#             */
+/*   Updated: 2018/09/04 03:21:45 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	lstcontainer_add(t_lstcontainer *container, void *content)
+int		rgba_to_int(int r, int g, int b, int a)
 {
-	if (container == NULL)
-		container = lstcontainer_new();
-	if (container->firstelement == NULL)
-	{
-		container->firstelement = ft_lstnew(content);
-		container->lastelement = container->firstelement;
-	}
-	else
-		container->lastelement = ft_lstadd(container->lastelement,
-			ft_lstnew(content));
+	return ((a & 0xff) << 24 | (r & 0xff) << 16 | (g & 0xff) << 8 | (b & 0xff));
 }

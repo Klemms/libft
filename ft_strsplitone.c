@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   listcontainer_addelement.c                         :+:      :+:    :+:   */
+/*   ft_strsplitone.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/17 05:13:38 by cababou           #+#    #+#             */
-/*   Updated: 2018/09/16 01:17:43 by cababou          ###   ########.fr       */
+/*   Created: 2018/09/04 02:27:58 by cababou           #+#    #+#             */
+/*   Updated: 2018/09/11 22:21:58 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	lstcontainer_add(t_lstcontainer *container, void *content)
+char	*ft_strsplitone(char *str, char c, int kp)
 {
-	if (container == NULL)
-		container = lstcontainer_new();
-	if (container->firstelement == NULL)
+	t_lstcontainer	*lst;
+	char			*k;
+
+	if ((lst = ft_strsplit_lst(str, c, c, '\0')) == NULL)
+		return (NULL);
+	k = NULL;
+	if (lstcontainer_fastsize(lst) >= 2)
 	{
-		container->firstelement = ft_lstnew(content);
-		container->lastelement = container->firstelement;
+		if ((k = ft_strdup(ft_lstget(kp, lst->firstelement)->content)) == NULL)
+		{
+			ft_lstdel(lst->firstelement, 1);
+			free(lst);
+			return (NULL);
+		}
 	}
-	else
-		container->lastelement = ft_lstadd(container->lastelement,
-			ft_lstnew(content));
+	ft_lstdel(lst->firstelement, 1);
+	free(lst);
+	return (k);
 }

@@ -6,7 +6,7 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 16:36:38 by cababou           #+#    #+#             */
-/*   Updated: 2018/08/13 04:41:49 by cababou          ###   ########.fr       */
+/*   Updated: 2018/02/17 03:34:50 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 t_list	*ft_lstgetlast(t_list *lst)
 {
-	t_list	*element;
-
-	element = lst;
-	while (element->next)
-		element = element->next;
-	return (element);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

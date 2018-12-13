@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   listcontainer_addelement.c                         :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/17 05:13:38 by cababou           #+#    #+#             */
-/*   Updated: 2018/09/16 01:17:43 by cababou          ###   ########.fr       */
+/*   Created: 2018/09/04 03:02:44 by cababou           #+#    #+#             */
+/*   Updated: 2018/09/04 04:50:43 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	lstcontainer_add(t_lstcontainer *container, void *content)
+int		ft_pow(int nb, int power)
 {
-	if (container == NULL)
-		container = lstcontainer_new();
-	if (container->firstelement == NULL)
+	int i;
+	int nbr;
+
+	if (power == 0)
+		return (1);
+	nbr = nb;
+	i = 1;
+	while (i < power)
 	{
-		container->firstelement = ft_lstnew(content);
-		container->lastelement = container->firstelement;
+		nbr *= nbr;
+		i++;
 	}
-	else
-		container->lastelement = ft_lstadd(container->lastelement,
-			ft_lstnew(content));
+	return (nbr);
 }

@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   listcontainer_addelement.c                         :+:      :+:    :+:   */
+/*   ft_hex_to_int.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/17 05:13:38 by cababou           #+#    #+#             */
-/*   Updated: 2018/09/16 01:17:43 by cababou          ###   ########.fr       */
+/*   Created: 2018/09/04 02:56:09 by cababou           #+#    #+#             */
+/*   Updated: 2018/09/04 04:51:13 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	lstcontainer_add(t_lstcontainer *container, void *content)
+int		ft_hex_to_int(char *hex, int free_it)
 {
-	if (container == NULL)
-		container = lstcontainer_new();
-	if (container->firstelement == NULL)
+	size_t	i;
+	int		multi;
+	int		nbr;
+
+	multi = ft_strlen(hex) - 1;
+	nbr = 0;
+	i = 0;
+	while (hex[i])
 	{
-		container->firstelement = ft_lstnew(content);
-		container->lastelement = container->firstelement;
+		nbr += letter_to_int(hex[i]) * ft_pow(16, multi);
+		multi--;
+		i++;
 	}
-	else
-		container->lastelement = ft_lstadd(container->lastelement,
-			ft_lstnew(content));
+	if (free_it == 1)
+		free(hex);
+	return (nbr);
 }
