@@ -6,7 +6,7 @@
 #    By: cababou <cababou@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/13 22:39:07 by cababou           #+#    #+#              #
-#    Updated: 2018/12/14 00:23:52 by cababou          ###   ########.fr        #
+#    Updated: 2019/03/23 02:30:00 by cababou          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,9 +21,9 @@ COL_VIOLET	= \033[1;35m
 COL_CYAN	= \033[1;36m
 COL_WHITE	= \033[1;37m
 
-NAME :=	libft.a
+NAME := libft.a
 
-SRC :=	ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
+SRC := ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 		ft_isdigit.c ft_isprint.c ft_itoa.c ft_memalloc.c ft_memccpy.c \
 		ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memdel.c ft_memmove.c \
 		ft_memset.c ft_putchar.c ft_putchar_fd.c ft_putendl.c \
@@ -42,39 +42,40 @@ SRC :=	ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 		listcontainer_size.c listcontainer_fastsize.c \
 		ft_lststrsplit.c ft_strsplitone.c ft_letter_to_int.c \
 		ft_hex_to_int.c ft_pow.c ft_hex_to_color.c \
-		ft_rgba_to_int.c ft_lstget_fromelement.c
+		ft_rgba_to_int.c ft_lstget_fromelement.c get_next_line.c ft_atof.c \
+		ft_putnbr_base.c ft_atoi_base.c mmalloc.c
 
-OBJ := 	$(SRC:.c=.o)
+OBJ := $(SRC:.c=.o)
 
-PWD :=		$(shell pwd)
+PWD := $(shell pwd)
 
-OBJDIR := 	obj
+OBJDIR := obj
 
-OBJP :=		$(addprefix $(OBJDIR)/, $(SRC:.c=.o))
-ONLYDIR :=	$(foreach dir, $(OBJP), $(shell dirname $(dir)))
+OBJP := $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
+ONLYDIR := $(foreach dir, $(OBJP), $(shell dirname $(dir)))
 
-FLAG := 	-Wall -Wextra -Werror
+FLAG := -Wall -Wextra -Werror
 
 TOTAL_FILES := $(shell echo $(SRC) | wc -w | sed -e 's/ //g')
-CURRENT_FILES = $(shell ls $(PWD)/obj/ 2> /dev/null | wc -l | sed -e 's/ //g')
+CURRENT_FILES = $(shell find $(PWD)/obj/ -type f 2> /dev/null | wc -l | sed -e 's/ //g')
 
 all : $(NAME)
 
 $(NAME) : $(OBJP)
-			@echo "$(CLEAR_LINE)$(COL_YELLOW)Finished compilation. Output file : $(COL_VIOLET)$(PWD)/$(NAME)$(COL_END)"
 			@ar rc $(NAME) $(OBJP)
+			@echo "$(CLEAR_LINE)$(COL_BLUE)[$(NAME)] $(COL_YELLOW)Finished compilation. Output file : $(COL_VIOLET)$(PWD)/$(NAME)$(COL_END)"
 
-$(OBJDIR)/%.o: %.c
+$(OBJDIR)/%.o: %.c libft.h get_next_line.h
 			@mkdir -p $(ONLYDIR)
-			@gcc -c -Wall -Wextra -Werror $< -o $@
-			@echo "$(CLEAR_LINE)$(COL_YELLOW)Compiling file [$(COL_VIOLET)$<$(COL_YELLOW)]. ($(CURRENT_FILES) / $(TOTAL_FILES))$(COL_END)$(BEGIN_LINE)"
+			@gcc -g -c -Wall -Wextra -Werror $< -o $@
+			@echo "$(CLEAR_LINE)$(COL_BLUE)[$(NAME)] $(COL_YELLOW)Compiling file [$(COL_VIOLET)$<$(COL_YELLOW)]. ($(CURRENT_FILES) / $(TOTAL_FILES))$(COL_END)$(BEGIN_LINE)"
 
 clean :
 			@rm -rf $(OBJDIR)
-			@echo "$(COL_YELLOW)Removed $(COL_VIOLET)compiled objects.$(COL_END)"
+			@echo "$(COL_BLUE)[$(NAME)] $(COL_YELLOW)Removed $(COL_VIOLET)compiled objects.$(COL_END)"
 
 fclean :	clean
 			@rm -rf $(NAME)
-			@echo "$(COL_YELLOW)Removed $(COL_VIOLET)$(NAME)$(COL_END)"
+			@echo "$(COL_BLUE)[$(NAME)] $(COL_YELLOW)Removed $(COL_VIOLET)$(NAME)$(COL_END)"
 
 re :		fclean all

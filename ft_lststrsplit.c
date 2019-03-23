@@ -6,7 +6,7 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 01:57:32 by cababou           #+#    #+#             */
-/*   Updated: 2018/09/17 00:28:34 by cababou          ###   ########.fr       */
+/*   Updated: 2019/03/12 11:04:15 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ char			*char_to_str(char c)
 
 int				init_func0(char *str, t_lstcontainer **l, char **t, size_t *i)
 {
-	if (str == NULL || ((*l) = lstcontainer_new()) == NULL ||
-		((*t) = ft_strnew(0)) == NULL)
+	if (str == NULL || ((*l) = lstcontainer_new()) == NULL
+		|| ((*t) = ft_strnew(0)) == NULL)
 		return (0);
 	(*i) = 0;
 	return (1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cababou <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 17:00:13 by cababou           #+#    #+#             */
-/*   Updated: 2017/12/14 17:57:13 by cababou          ###   ########.fr       */
+/*   Updated: 2019/03/13 13:58:26 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	{
 		i2 = 0;
 		possibleoccurence = i;
-		while ((i + i2) < len && haystack[i] != '\0' &&
-			needle[i2] == haystack[i + i2])
+		while ((i + i2) < len && haystack[i] != '\0'
+			&& needle[i2] == haystack[i + i2])
 		{
 			if (needle[i2 + 1] == '\0')
 				return ((char *)(haystack + possibleoccurence));

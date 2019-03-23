@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rgba_to_int.c                                   :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/04 03:06:17 by cababou           #+#    #+#             */
-/*   Updated: 2018/09/04 03:21:45 by cababou          ###   ########.fr       */
+/*   Created: 2018/01/12 17:40:44 by cababou           #+#    #+#             */
+/*   Updated: 2019/01/22 23:34:21 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int		rgba_to_int(int r, int g, int b, int a)
+# define BUFF_SIZE 4096
+
+# include "libft.h"
+# include <unistd.h>
+
+typedef struct		s_file
 {
-	return ((a & 0xff) << 24 | (r & 0xff) << 16 | (g & 0xff) << 8 | (b & 0xff));
-}
+	char			*content;
+	int				file_descriptor;
+	int				end;
+}					t_file;
+
+int					get_next_line(const int fd, char **line);
+
+#endif
